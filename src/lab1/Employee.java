@@ -22,10 +22,21 @@ public class Employee {
     private String cubeId;
 
     public Employee() {
-
+     
     }
     
+    
+    public void completeAdministrative(String cubeId){
+        meetWithHrForBenefitAndSalryInfo();
+        meetDepartmentStaff();
+        reviewDeptPolicies();
+        moveIntoCubicle(cubeId);
+    }
+           
+    
     public void setFirstName(String name){
+        // Very basic validation
+        // more validation needed
         if(name.length() <=0 ){
             throw new IllegalArgumentException("First Name is illegal");
         }
@@ -33,6 +44,8 @@ public class Employee {
     };
     
     public void setLastName(String name){
+        // Very basic validation
+        // more validation needed
         if(name.length() <=0 ){
             throw new IllegalArgumentException("Last Name is illegal");
         }
@@ -40,6 +53,8 @@ public class Employee {
     };
     
     public void setSSN(String ssn){
+        // Very basic validation
+        // more validation needed
         if (ssn.length() < 9){
             throw new IllegalArgumentException("SSN is too short");
         }
@@ -47,18 +62,21 @@ public class Employee {
     };
     
     public void setDate(Date date){
+        // Very basic validation
+        // more validation needed
         if(date == null){
             throw new IllegalArgumentException("Date is illegal");
         }
     }
 
     // Assume this must be performed first
-    public void meetWithHrForBenefitAndSalryInfo() {
+    private void meetWithHrForBenefitAndSalryInfo() {
+        
         metWithHr = true;
     }
 
     // Assume this is must be performed second
-    public void meetDepartmentStaff() {
+    private void meetDepartmentStaff() {
         if(metWithHr) {
             metDeptStaff = true;
         } else {
@@ -68,7 +86,7 @@ public class Employee {
     }
 
     // Assume this must be performed third
-    public void reviewDeptPolicies() {
+    private void reviewDeptPolicies() {
         if(metWithHr && metDeptStaff) {
             reviewedDeptPolicies = true;
         } else {
@@ -79,8 +97,10 @@ public class Employee {
     }
 
     // Assume this must be performed 4th
-    public void moveIntoCubicle(String cubeId) {
+    private void moveIntoCubicle(String cubeId) {
         if(metWithHr && metDeptStaff && reviewedDeptPolicies) {
+            
+            //validate cube id
             this.cubeId = cubeId;
             this.movedIn = true;
         } else {

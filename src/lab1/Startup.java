@@ -9,17 +9,20 @@ package lab1;
  * @version     1.01
  */
 public class Startup {
+    
+    
+    
     public static void main(String[] args) {
+        
+        String cubeID = "W123";
+        
         Employee employee = new Employee();
         employee.setFirstName("Peter");
         employee.setLastName("Piper");
         employee.setSSN("333-1234");
         
-        
-        employee.meetDepartmentStaff();
-        employee.meetWithHrForBenefitAndSalryInfo();
-        employee.reviewDeptPolicies();
-
+        employee.completeAdministrative(cubeID);
+     
         System.out.println("The employee's status is: " + employee.getStatus());
     }
     
